@@ -1,0 +1,1 @@
+<%= items.map { |item| { :label => "#{item.item_id} - #{item.name}", :value => item.item_id } }.to_json.html_safe %>

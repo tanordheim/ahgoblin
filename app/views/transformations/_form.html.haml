@@ -1,0 +1,37 @@
+= simple_form_for transformation do |f|
+
+  = render_form_errors f
+
+  = field_set_tag transformation.new_record? ? 'Add transformation' : 'Modify transformation' do
+    = f.input :name, :wrapper => :inline
+
+  %h4
+    Reagents
+    %small
+      = link_to 'Add reagent', new_transformation_reagent_path, :remote => true
+
+  %table.transformation-reagents
+    %thead
+      %tr
+        %th.id ID
+        %th.name Name
+        %th.quantity Quantity
+    %tbody#transformation-reagents-container
+      = render transformation.reagents
+
+  %h4
+    Yields
+    %small
+      = link_to 'Add yield', new_transformation_yield_path, :remote => true
+
+  %table.transformation-yields
+    %thead
+      %tr
+        %th.id ID
+        %th.name Name
+        %th.quantity Quantity
+    %tbody#transformation-yields-container
+      = render transformation.yields
+
+  %div.actions
+    = f.button :submit, :class => 'primary'

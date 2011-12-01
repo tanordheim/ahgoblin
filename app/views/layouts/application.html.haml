@@ -1,0 +1,43 @@
+- current_profession = nil
+- if controller.respond_to?(:profession)
+  - current_profession = controller.profession.id
+!!! 5
+%html
+  %head
+    %title AhGoblin
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+
+  %body
+
+    %div.topbar
+      %div.topbar-inner
+        %div.container-fluid
+          = link_to 'AhGoblin', root_path, :class => 'brand'
+          %ul.nav
+            %li{:class => active_class_if?([:shopping_list, :reagent_groups, :reagents])}= link_to 'Shopping list', root_path
+            %li{:class => active_class_if?(:transformations)}= link_to 'Transformations', transformations_path
+            %li.dropdown{:'data-dropdown' => true, :class => active_class_if?([:professions, :recipe_groups, :recipes])}
+              = link_to 'Profession recipes', '#', :class => 'dropdown-toggle'
+              %ul.dropdown-menu
+                - professions.each do |profession|
+                  %li{:class => !current_profession.blank? && current_profession == profession.id ? 'active' : nil}= link_to profession.name, profession_path(profession)
+            %li{:class => active_class_if?([:auto_mail_characters, :auto_mail_items])}= link_to 'Auto-mail', auto_mail_characters_path
+            %li{:class => active_class_if?(:exports)}= link_to 'Exports', exports_path
+          %ul.secondary-nav
+            %li= link_to 'Log out', session_path, :method => :delete
+
+    %div.container-fluid
+      %div#notice-container
+        = render :partial => '/shared/notice', :locals => { :message => flash[:notice] }
+
+      = yield
+
+    %div#modal-container.modal.hide
+      %div.modal-header
+        = link_to '&times;'.html_safe, '#', :class => 'close'
+        %h3
+      %div.modal-body
+        Wee
+      %div.modal-footer

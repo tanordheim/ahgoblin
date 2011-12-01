@@ -1,0 +1,28 @@
+= simple_form_for recipe do |f|
+
+  = render_form_errors f
+
+  = field_set_tag recipe.new_record? ? 'Add recipe' : 'Modify recipe' do
+    = f.input :item_lookup_id, :wrapper => :inline, :input_html => { :'data-item-id-completion' => true }
+    = f.association :recipe_group, :collection => recipe_groups.map { |g| [g.name_with_profession, g.id] }, :include_blank => false, :wrapper => :inline
+
+  %h4
+    Reagents
+    %small
+      = link_to 'Add reagent', new_recipe_reagent_path, :remote => true
+
+  %table.recipe-reagents
+    %thead
+      %tr
+        %th.id ID
+        %th.name Name
+        %th.price Price
+        %th.source Source
+        %th.quantity Quantity
+        %th.sum Sum
+        %th.delete
+    %tbody#reagents-container
+      = render recipe.reagents
+
+  %div.actions
+    = f.button :submit, :class => 'primary'

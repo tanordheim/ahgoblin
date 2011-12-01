@@ -1,0 +1,8 @@
+<% if transformation_component.errors.any? -%>
+  $.setModalBody("<%= escape_javascript(render('form')) %>");
+  $.setTransformationComponentItemId();
+<% else -%>
+  $('#components-container').append("<%= escape_javascript(render(transformation_component)) %>");
+  $('#components-container tr:last').highlight();
+  $.closeModal();
+<% end -%>

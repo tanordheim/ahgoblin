@@ -1,0 +1,71 @@
+@mixin max-width-column {
+  width: 100%;
+}
+@mixin min-width-column {
+  width: 1px;
+  white-space: nowrap;
+}
+@mixin right-column {
+  text-align: right;
+}
+
+table.reagents {
+  .id { @include min-width-column; }
+  .name { @include max-width-column; }
+  .price { @include min-width-column; @include right-column; }
+  .source { @include min-width-column; @include right-column; }
+  .delete { @include min-width-column; }
+}
+
+table.reagent-components {
+  .type { @include min-width-column; }
+  .name { @include max-width-column; }
+  .quantity { @include min-width-column; @include right-column; }
+  .price { @include min-width-column; @include right-column; }
+  .delete { @include min-width-column; }
+}
+
+table.transformations {
+  .name { @include max-width-column; }
+  .delete { @include min-width-column; }
+}
+
+table.transformation-reagents {
+  .id { @include min-width-column; }
+  .name { @include max-width-column; }
+  .quantity { @include min-width-column; @include right-column; }
+  .delete { @include min-width-column; }
+}
+
+table.transformation-yields {
+  .id { @include min-width-column; }
+  .name { @include max-width-column; }
+  .quantity { @include min-width-column; @include right-column; }
+  .delete { @include min-width-column; }
+}
+
+table.recipes {
+  .id { @include min-width-column; }
+  .name { @include max-width-column; }
+  .cost { @include min-width-column; @include right-column; }
+  .deposit { @include min-width-column; @include right-column; }
+  .min-price { @include min-width-column; @include right-column; }
+  .fallback-price { @include min-width-column; @include right-column; }
+  .delete { @include min-width-column; }
+}
+
+table.recipe-reagents {
+  .id { @include min-width-column; }
+  .name { @include max-width-column; }
+  .price { @include min-width-column; @include right-column; }
+  .source { @include min-width-column; @include right-column; }
+  .quantity { @include min-width-column; @include right-column; }
+  .sum { @include min-width-column; @include right-column; }
+  .delete { @include min-width-column; }
+}
+
+table.auto-mail-items {
+  .id { @include min-width-column; }
+  .name { @include max-width-column; }
+  .delete { @include min-width-column; }
+}

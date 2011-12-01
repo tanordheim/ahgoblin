@@ -1,0 +1,7 @@
+<% if recipe_reagent.errors.any? -%>
+  $.setModalBody("<%= escape_javascript(render('form')) %>");
+<% else -%>
+  $('#reagents-container').append("<%= escape_javascript(render(recipe_reagent)) %>");
+  $('#reagents-container tr:last').highlight();
+  $.closeModal();
+<% end -%>

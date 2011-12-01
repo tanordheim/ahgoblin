@@ -1,0 +1,7 @@
+<% if transformation_reagent.errors.any? -%>
+  $.setModalBody("<%= escape_javascript(render('form')) %>");
+<% else -%>
+  $('#transformation-reagents-container').append("<%= escape_javascript(render(transformation_reagent)) %>");
+  $('#transformation-reagents-container tr:last').highlight();
+  $.closeModal();
+<% end -%>

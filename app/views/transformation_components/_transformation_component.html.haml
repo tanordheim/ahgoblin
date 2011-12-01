@@ -1,0 +1,12 @@
+%tr
+  %td.type Transformation
+  %td.name= transformation_component.transformation.name
+  %td.quantity= format_quantity(transformation_component.quantity)
+  %td.price= format_currency(transformation_component.production_cost)
+  %td.delete
+    = link_to '&times;'.html_safe, '#', :'data-remove-component' => true
+    - component_id = element_id_for_component(transformation_component)
+    - unless transformation_component.new_record?
+      = hidden_field_tag "reagent[transformation_components_attributes][#{component_id}][id]", transformation_component.id, :'data-component-id' => true, :'data-component-type' => 'transformation'
+    = hidden_field_tag "reagent[transformation_components_attributes][#{component_id}][transformation_id]", transformation_component.transformation.id
+    = hidden_field_tag "reagent[transformation_components_attributes][#{component_id}][quantity]", transformation_component.quantity

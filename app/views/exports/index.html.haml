@@ -1,0 +1,12 @@
+%div.page-header
+  %h1
+    Exports
+    %small
+      Data exports from AhGoblin to in-game addons.
+
+%p
+  These are the available data exports from AhGoblin. To import these ingame, you must have the AhGoblin addon installed and activated.
+
+%ul
+  %li= link_to 'Auctioneer snatch list', auctioneer_export_path, :remote => true
+  %li= link_to 'TradeSkillmaster craft list, groups and auto-mail', tradeskillmaster_export_path, :remote => true

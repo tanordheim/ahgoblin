@@ -1,0 +1,12 @@
+%tr
+  %td.id= transformation_yield.item.item_id
+  %td.name
+    = display_item transformation_yield.item
+  %td.quantity= format_quantity(transformation_yield.quantity)
+  %td.delete
+    = link_to '&times;'.html_safe, '#', :'data-remove-yield' => true
+    - yield_id = element_id_for_transformation_yield(transformation_yield)
+    - unless transformation_yield.new_record?
+      = hidden_field_tag "transformation[yields_attributes][#{yield_id}][id]", transformation_yield.id, :'data-yield-id' => true
+    = hidden_field_tag "transformation[yields_attributes][#{yield_id}][item_id]", transformation_yield.item.id
+    = hidden_field_tag "transformation[yields_attributes][#{yield_id}][quantity]", transformation_yield.quantity

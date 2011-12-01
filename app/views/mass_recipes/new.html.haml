@@ -1,0 +1,32 @@
+= simple_form_for mass_recipe, :url => mass_recipes_path do |f|
+
+  = render_form_errors f
+
+  = field_set_tag 'Mass-add recipes' do
+    %div.row
+      %div.span8
+        = f.input :item_ids, :as => :text, :wrapper => :inline
+
+      %div.span8
+        = f.input :recipe_group_id, :collection => recipe_groups.map { |g| [g.name_with_profession, g.id] }, :include_blank => false, :wrapper => :inline
+
+        %h4
+          Reagents
+          %small
+            = link_to 'Add reagent', new_recipe_reagent_path(:model_name => 'mass_recipe'), :remote => true
+
+        %table
+          %thead
+            %tr
+              %th ID
+              %th Name
+              %th Price
+              %th Source
+              %th Quantity
+              %th Sum
+              %th
+          %tbody#reagents-container{:'data-model-name' => 'mass_recipe'}
+            = render mass_recipe.reagents
+
+  %div.actions
+    = f.button :submit, :class => 'primary'

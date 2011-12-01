@@ -1,0 +1,20 @@
+%div.sidebar
+  %div.well
+    %h5 Actions
+    %ul
+      %li= link_to 'New transformation', new_transformation_path
+
+%div.content
+  %div.page-header
+    %h1
+      Transformations
+      %small
+        Transformation of in-game items via professions.
+
+  %table.transformations
+    %thead
+      %tr
+        %th.name Name
+        %th.delete
+    %tbody
+      = render transformations

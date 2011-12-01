@@ -1,0 +1,6 @@
+= simple_form_for character, :remote => true do |f|
+
+  = render_form_errors f
+
+  = field_set_tag do
+    = f.input :name, :wrapper => :inline

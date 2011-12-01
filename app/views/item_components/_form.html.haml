@@ -1,0 +1,9 @@
+= simple_form_for item_component, :remote => true do |f|
+
+  = render_form_errors f
+
+  = field_set_tag do
+    = f.input :item_lookup_id, :wrapper => :inline, :input_html => { :'data-item-id-completion' => true }
+    = f.input :use_vendor_price, :wrapper => :inline
+    = f.input :price_string, :wrapper => :inline
+    = f.input :quantity, :wrapper => :inline

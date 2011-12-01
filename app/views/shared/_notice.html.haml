@@ -1,0 +1,4 @@
+- unless message.blank?
+  %div.alert-message.info{:'data-alert' => true}
+    = link_to '&times;'.html_safe, '#', :class => 'close'
+    %p= message

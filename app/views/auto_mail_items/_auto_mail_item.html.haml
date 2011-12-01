@@ -1,0 +1,6 @@
+%tr
+  %td.id= auto_mail_item.item.item_id
+  %td.name
+    = display_item auto_mail_item.item
+  %td.delete
+    = link_to '&times;'.html_safe, auto_mail_item_path(auto_mail_item), :method => :delete, :remote => true, :confirm => 'Are you sure you want to remove this item?'

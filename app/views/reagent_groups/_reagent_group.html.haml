@@ -1,0 +1,19 @@
+%h4{:id => anchor_identifier(reagent_group.name)}
+  = reagent_group.name
+  %small
+    = link_to 'Edit group', edit_reagent_group_path(reagent_group), :remote => true
+    == -
+    = link_to 'Delete group', reagent_group_path(reagent_group), :remote => true, :method => :delete, :confirm => 'Are you sure you want to delete this group?'
+    == -
+    = link_to 'Add reagent', new_reagent_path(:reagent => { :reagent_group_id => reagent_group.id })
+
+%table.reagents
+  %thead
+    %tr
+      %th.id ID
+      %th.name Name
+      %th.price Price
+      %th.source Source
+      %th.delete
+  %tbody
+    = render reagent_group.reagents.ordered_by_name

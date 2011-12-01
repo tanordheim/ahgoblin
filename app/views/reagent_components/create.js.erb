@@ -1,0 +1,7 @@
+<% if reagent_component.errors.any? -%>
+  $.setModalBody("<%= escape_javascript(render('form')) %>");
+<% else -%>
+  $('#components-container').append("<%= escape_javascript(render(reagent_component)) %>");
+  $('#components-container tr:last').highlight();
+  $.closeModal();
+<% end -%>

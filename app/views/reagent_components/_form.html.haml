@@ -1,0 +1,7 @@
+= simple_form_for reagent_component, :remote => true do |f|
+
+  = render_form_errors f
+
+  = field_set_tag do
+    = f.association :reagent_reference, :collection => reagents, :include_blank => false, :wrapper => :inline
+    = f.input :quantity, :wrapper => :inline

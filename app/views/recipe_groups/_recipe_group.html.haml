@@ -1,0 +1,23 @@
+%h4{:id => anchor_identifier(recipe_group.name)}
+  = recipe_group.name
+  %small
+    = link_to 'Edit group', edit_recipe_group_path(recipe_group)
+    == -
+    = link_to 'Delete group', recipe_group_path(recipe_group), :remote => true, :method => :delete, :confirm => 'Are you sure you want to delete this recipe group? All recipes within the group will also be deleted.'
+    == -
+    = link_to 'Add recipe', new_recipe_path(:recipe => { :recipe_group_id => recipe_group.id })
+    == -
+    = link_to 'Mass-add recipes', new_mass_recipe_path(:mass_recipe => { :recipe_group_id => recipe_group.id })
+
+%table.recipes
+  %thead
+    %tr
+      %th.id ID
+      %th.name Name
+      %th.cost Cost
+      %th.deposit Deposit
+      %th.min-price Min. price
+      %th.fallback-price Fallback price
+      %th.delete
+  %tbody
+    = render recipe_group.recipes.ordered_by_name

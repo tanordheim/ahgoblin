@@ -1,0 +1,29 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: ahgoblin_dev
+  host: localhost
+  pool: 5
+  username: dev
+  password: dev
+
+test: &test
+  adapter: postgresql
+  encoding: unicode
+  database: ahgoblin_test
+  host: localhost
+  pool: 5
+  username: test
+  password: test
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: pgsql1
+  username: prod
+  password: prod
+  database: ahgoblin_prod
+
+cucumber:
+  <<: *test

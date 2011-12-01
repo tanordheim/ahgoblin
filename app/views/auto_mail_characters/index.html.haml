@@ -1,0 +1,20 @@
+%div.sidebar
+  %div.well
+    %h5 Actions
+    %ul
+      %li= link_to 'New character', new_auto_mail_character_path, :remote => true
+
+    %h5 Jump to...
+    %ul
+      - characters.each do |character|
+        %li= link_to character.name, "##{anchor_identifier(character.name)}"
+
+%div.content
+  %div.page-header
+    %h1
+      Auto-mail
+      %small
+        Automatic mailing of items between characters.
+
+  %div#auto-mail-characters
+    = render characters

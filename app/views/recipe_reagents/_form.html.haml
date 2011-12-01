@@ -1,0 +1,8 @@
+= simple_form_for recipe_reagent, :remote => true do |f|
+
+  = render_form_errors f
+
+  = field_set_tag do
+    = hidden_field_tag :model_name, model_name
+    = f.association :reagent, :collection => reagents, :wrapper => :inline, :include_blank => false
+    = f.input :quantity, :wrapper => :inline

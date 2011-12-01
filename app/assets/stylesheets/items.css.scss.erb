@@ -1,0 +1,61 @@
+span.item-container {
+
+  span.item-icon {
+    position: relative;
+    display: block;
+    width: 26px;
+    height: 26px;
+    float: left;
+    margin-right: 5px;
+    margin-top: -2px;
+
+    img {
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      width: 18px;
+      height: 18px;
+    }
+
+    span.icon-frame {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 26px;
+      height: 26px;
+      background: url(<%= image_path('icon-border-bg.png') %>) no-repeat top left;
+    }
+  }
+
+  span.item {
+    font-size: 13px;
+    text-transform: none;
+    color: #404040;
+    display: block;
+    float: left;
+
+    &.quality-poor {
+      background: #9d9d9d;
+      color: #fff;
+    }
+
+    &.quality-common {
+      background: #fff;
+    }
+
+    &.quality-uncommon {
+      background: #1eff00;
+    }
+
+    &.quality-rare {
+      background: #0070dd;
+      color: #fff;
+    }
+
+    &.quality-epic {
+      background: #a335ee;
+      color: #fff;
+    }
+  }
+
+}

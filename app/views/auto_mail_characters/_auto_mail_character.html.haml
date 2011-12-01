@@ -1,0 +1,17 @@
+%h4{:id => anchor_identifier(auto_mail_character.name)}
+  = auto_mail_character.name
+  %small
+    = link_to 'Edit character', edit_auto_mail_character_path(auto_mail_character), :remote => true
+    == -
+    = link_to 'Delete character', auto_mail_character_path(auto_mail_character), :remote => true, :method => :delete, :confirm => 'Are you sure you want to delete this auto-mail character?'
+    == -
+    = link_to 'Add item', new_auto_mail_item_path(:auto_mail_item => { :auto_mail_character_id => auto_mail_character.id }), :remote => true
+
+%table.auto-mail-items
+  %thead
+    %tr
+      %th.id ID
+      %th.name Name
+      %th.delete
+  %tbody
+    = render auto_mail_character.auto_mail_items.ordered_by_name

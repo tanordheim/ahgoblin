@@ -1,0 +1,15 @@
+%tr
+  %td.type Item
+  %td.name
+    = display_item item_component.item
+  %td.quantity= format_quantity(item_component.quantity)
+  %td.price= format_currency(item_component.production_cost)
+  %td.delete
+    = link_to '&times;'.html_safe, '#', :'data-remove-component' => true
+    - component_id = element_id_for_component(item_component)
+    - unless item_component.new_record?
+      = hidden_field_tag "reagent[item_components_attributes][#{component_id}][id]", item_component.id, :'data-component-id' => true, :'data-component-type' => 'item'
+    = hidden_field_tag "reagent[item_components_attributes][#{component_id}][item_id]", item_component.item.id
+    = hidden_field_tag "reagent[item_components_attributes][#{component_id}][price]", item_component.price
+    = hidden_field_tag "reagent[item_components_attributes][#{component_id}][use_vendor_price]", item_component.use_vendor_price
+    = hidden_field_tag "reagent[item_components_attributes][#{component_id}][quantity]", item_component.quantity

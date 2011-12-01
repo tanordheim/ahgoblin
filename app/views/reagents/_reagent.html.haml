@@ -1,0 +1,8 @@
+%tr
+  %td.id= link_to reagent.item.item_id, edit_reagent_path(reagent)
+  %td.name
+    = display_item reagent.item
+  %td.price= format_currency(reagent.production_cost)
+  %td.source= reagent.item_sources.join(', ')
+  %td.delete
+    = link_to '&times;'.html_safe, reagent_path(reagent), :method => :delete, :remote => true, :confirm => 'Are you sure you want to remove this reagent?'

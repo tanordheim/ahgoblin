@@ -1,0 +1,12 @@
+%tr
+  %td.id= transformation_reagent.reagent.item.item_id
+  %td.name
+    = display_item transformation_reagent.reagent.item
+  %td.quantity= format_quantity(transformation_reagent.quantity)
+  %td.delete
+    = link_to '&times;'.html_safe, '#', :'data-remove-reagent' => true
+    - reagent_id = element_id_for_transformation_reagent(transformation_reagent)
+    - unless transformation_reagent.new_record?
+      = hidden_field_tag "transformation[reagents_attributes][#{reagent_id}][id]", transformation_reagent.id, :'data-reagent-id' => true
+    = hidden_field_tag "transformation[reagents_attributes][#{reagent_id}][reagent_id]", transformation_reagent.reagent.id
+    = hidden_field_tag "transformation[reagents_attributes][#{reagent_id}][quantity]", transformation_reagent.quantity

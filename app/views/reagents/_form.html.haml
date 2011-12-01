@@ -1,0 +1,31 @@
+= simple_form_for reagent do |f|
+
+  = render_form_errors f
+
+  = field_set_tag reagent.new_record? ? 'Add reagent' : 'Modify reagent' do
+    = f.input :item_lookup_id, :wrapper => :inline, :input_html => { :'data-item-id-completion' => true }
+    = f.association :reagent_group, :collection => reagent_groups, :include_blank => false, :wrapper => :inline
+
+
+  %h4
+    Components
+    %small
+      = link_to 'Add item', new_item_component_path, :remote => true
+      == -
+      = link_to 'Add reagent', new_reagent_component_path, :remote => true
+      == -
+      = link_to 'Add transformation', new_transformation_component_path, :remote => true
+
+  %table.reagent-components
+    %thead
+      %tr
+        %th.type Type
+        %th.name Name
+        %th.quantity Quantity
+        %th.price Price per
+        %th.delete
+    %tbody#components-container
+      = render reagent.components
+
+  %div.actions
+    = f.button :submit, :class => 'primary'

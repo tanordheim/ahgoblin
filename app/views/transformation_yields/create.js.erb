@@ -1,0 +1,7 @@
+<% if transformation_yield.errors.any? -%>
+  $.setModalBody("<%= escape_javascript(render('form')) %>");
+<% else -%>
+  $('#transformation-yields-container').append("<%= escape_javascript(render(transformation_yield)) %>");
+  $('#transformation-yields-container tr:last').highlight();
+  $.closeModal();
+<% end -%>

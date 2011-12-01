@@ -1,0 +1,6 @@
+<% if character.errors.any? -%>
+  $.setModalBody("<%= escape_javascript(render('form')) %>");
+<% else -%>
+  $.closeModal()
+  $('#auto-mail-characters').html("<%= escape_javascript(render(characters)) %>");
+<% end -%>

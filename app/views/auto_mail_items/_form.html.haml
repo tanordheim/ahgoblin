@@ -1,0 +1,7 @@
+= simple_form_for item, :remote => true do |f|
+
+  = render_form_errors f
+
+  = field_set_tag do
+    = f.input :item_lookup_id, :wrapper => :inline, :input_html => { :'data-item-id-completion' => true }
+    = f.association :auto_mail_character, :collection => characters, :include_blank => false, :wrapper => :inline

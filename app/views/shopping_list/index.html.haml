@@ -1,0 +1,20 @@
+%div.sidebar
+  %div.well
+    %h5 Actions
+    %ul
+      %li= link_to 'New group', new_reagent_group_path, :remote => true
+
+    %h5 Jump to...
+    %ul
+      - reagent_groups.each do |reagent_group|
+        %li= link_to reagent_group.name, "##{anchor_identifier(reagent_group.name)}"
+
+%div.content
+  %div.page-header
+    %h1
+      Shopping list
+      %small
+        All items involved with crafting.
+
+  %div#shopping-list
+    = render reagent_groups

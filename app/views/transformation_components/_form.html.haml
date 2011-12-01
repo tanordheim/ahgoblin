@@ -1,0 +1,8 @@
+= simple_form_for transformation_component, :remote => true do |f|
+
+  = render_form_errors f
+  = hidden_field_tag :item_id, item_id, :id => 'transformation_component_item_id'
+
+  = field_set_tag do
+    = f.association :transformation, :collection => transformations, :include_blank => false, :wrapper => :inline
+    = f.input :quantity, :wrapper => :inline

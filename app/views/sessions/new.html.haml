@@ -1,0 +1,15 @@
+= form_tag session_path do
+  %fieldset
+    %legend Log in to AhGoblin
+    %div.clearfix
+      %label{:for => 'email_field'} E-mail address
+      %div.input
+        = text_field_tag :email, params[:email], :id => 'email_field'
+
+    %div.clearfix
+      %label{:for => 'password_field'} Password
+      %div.input
+        = password_field_tag :password, '', :id => 'password_field'
+
+    %div.actions
+      = submit_tag 'Log in', :class => 'btn primary'

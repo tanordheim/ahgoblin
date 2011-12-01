@@ -1,0 +1,7 @@
+= simple_form_for reagent_group, :remote => true do |f|
+
+  = render_form_errors f
+
+  = field_set_tag do
+    = f.input :name, :wrapper => :inline
+    = f.input :include_in_snatch_list, :wrapper => :inline

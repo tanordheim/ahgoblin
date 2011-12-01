@@ -1,0 +1,6 @@
+<% if reagent_group.errors.any? -%>
+  $.setModalBody("<%= escape_javascript(render('form')) %>");
+<% else -%>
+  $.closeModal()
+  $('#shopping-list').html("<%= escape_javascript(render(reagent_groups)) %>");
+<% end -%>

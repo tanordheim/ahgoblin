@@ -1,0 +1,106 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  simple_form:
+    labels:
+      reagent_group:
+        name: "Group name"
+        include_in_snatch_list: "Include in snatch list"
+      reagent:
+        item_lookup_id: "Item ID"
+        reagent_group: "Reagent group"
+      item_component:
+        item_lookup_id: "Item ID"
+        use_vendor_price: "Use vendor price"
+        price_string: "Price"
+        quantity: "Quantity"
+      reagent_component:
+        reagent_reference: "Reagent"
+        quantity: "Quantity"
+      transformation_component:
+        transformation: "Transformation"
+        quantity: "Quantity"
+      transformation:
+        name: "Name"
+      recipe_group:
+        name: "Name"
+        profession: "Profession"
+        profit_margin: "Profit margin"
+        fallback_margin: "Fallback margin"
+        max_restock_quantity: "Max. restock quantity"
+        min_restock_quantity: "Min. restock quantity"
+        post_cap: "Items to post"
+        per_auction: "Items per auction"
+        create_tsm_groups_for_recipes: "Create TSM group per recipe"
+        stockpile_character: "Stockpile char"
+      recipe:
+        item_lookup_id: "Item ID"
+        recipe_group: "Recipe group"
+      mass_recipe:
+        item_ids: "Item IDs"
+        recipe_group_id: "Recipe group"
+      auto_mail_character:
+        name: "Character name"
+      auto_mail_item:
+        item_lookup_id: "Item ID"
+        auto_mail_character: "Character"
+
+    hints:
+      reagent_group:
+        name: "the display name of the group"
+      reagent:
+        item_lookup_id: "the in-game item ID of the item"
+        reagent_group: "the group the reagent belongs to"
+      item_component:
+        item_lookup_id: "the in-game item ID of the item"
+        use_vendor_price: "use the in-game vendor price to price the reagent"
+        price_string: "the value of the item (eg. 3g50s45c)"
+        quantity: "the number of items required for the reagent"
+      reagent_component:
+        reagent_reference: "the reagent to refer to"
+        quantity: "the number of items required for the reagent"
+      transformation_component:
+        transformation: "the transformation to refer to"
+        quantity: "the number of items required for the reagent"
+      transformation:
+        name: "the display name of the transformation"
+      recipe_group:
+        name: "the display name of the group"
+        profession: "the profession to associate the group with"
+        profit_margin: "the minimum profit when selling an item - default: 105%"
+        fallback_margin: "the max price when no others are selling an item - default: 250%"
+        max_restock_quantity: "maximum number of items to keep in stock"
+        min_restock_quantity: "the minimum number of items to create before restocking"
+        post_cap: "the number of auctions to keep on the auction house"
+        per_auction: "the number of items to post in each auction"
+        create_tsm_groups_for_recipes: "create a TSM group for each recipe in this group"
+        stockpile_character: "name of the character that holds these items, if any"
+      recipe:
+        item_lookup_id: "the in-game item ID of the item"
+        recipe_group: "the profession and group to associate the recipe with"
+      mass_recipe:
+        item_ids: "one item id per line"
+        recipe_group_id: "the profession and group to associate the recipes with"
+      auto_mail_character:
+        name: "the name of the character to receive the items"
+      auto_mail_item:
+        item_lookup_id: "the in-game item ID of the item"
+        auto_mail_character: "the character that should receive the item"
+
+  helpers:
+    submit:
+      reagent:
+        create: "Add reagent"
+        update: "Update reagent"
+      transformation:
+        create: "Add transformation"
+        update: "Update transformation"
+      recipe_group:
+        create: "Add group"
+        update: "Update group"
+      recipe:
+        create: "Add recipe"
+        update: "Update recipe"
+      mass_recipe:
+        create: "Add recipes"

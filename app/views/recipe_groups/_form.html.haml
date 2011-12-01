@@ -1,0 +1,24 @@
+= simple_form_for recipe_group do |f|
+
+  = render_form_errors f
+  = hidden_field_tag :original_profession_id, original_profession_id
+
+  = field_set_tag recipe_group.new_record? ? 'Add recipe group' : 'Modify recipe group' do
+    %div.row
+      %div.span8
+        = f.input :name, :wrapper => :inline
+        = f.association :profession, :collection => professions, :include_blank => false, :wrapper => :inline
+
+        = f.input :max_restock_quantity, :wrapper => :inline, :input_html => { :class => 'mini' }
+        = f.input :min_restock_quantity, :wrapper => :inline, :input_html => { :class => 'mini' }
+        = f.input :post_cap, :wrapper => :inline, :input_html => { :class => 'mini' }
+        = f.input :per_auction, :wrapper => :inline, :input_html => { :class => 'mini' }
+
+      %div.span8
+        = f.input :profit_margin, :wrapper => :inline, :input_html => { :class => 'mini' }
+        = f.input :fallback_margin, :wrapper => :inline, :input_html => { :class => 'mini' }
+        = f.input :stockpile_character, :wrapper => :inline
+        = f.input :create_tsm_groups_for_recipes, :wrapper => :inline
+
+  %div.actions
+    = f.button :submit, :class => 'primary'

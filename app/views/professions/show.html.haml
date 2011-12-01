@@ -1,0 +1,19 @@
+%div.sidebar
+  %div.well
+    %h5 Actions
+    %ul
+      %li= link_to 'New group', new_recipe_group_path(:recipe_group => { :profession_id => profession.id })
+
+    %h5 Jump to...
+    %ul
+      - recipe_groups.each do |recipe_group|
+        %li= link_to recipe_group.name, "##{anchor_identifier(recipe_group.name)}"
+
+%div.content
+  %div.page-header
+    %h1
+      Recipes
+      %small= profession.name
+
+  %div#recipe-groups
+    = render recipe_groups

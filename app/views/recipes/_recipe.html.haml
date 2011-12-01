@@ -1,0 +1,10 @@
+%tr
+  %td.id= link_to recipe.item.item_id, edit_recipe_path(recipe)
+  %td.name
+    = display_item recipe.item
+  %td.cost= format_currency(recipe.production_cost)
+  %td.deposit= format_currency(recipe.ah_deposit)
+  %td.min-price= format_currency(recipe.minimum_price)
+  %td.fallback-price= format_currency(recipe.fallback_price)
+  %td.delete
+    = link_to '&times;'.html_safe, recipe_path(recipe), :method => :delete, :remote => true, :confirm => 'Are you sure you want to remove this recipe?'
